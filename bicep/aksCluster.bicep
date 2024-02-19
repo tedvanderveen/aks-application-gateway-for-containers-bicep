@@ -90,7 +90,7 @@ param outboundType string = 'loadBalancer'
 param skuTier string = 'Standard'
 
 @description('Specifies the version of Kubernetes specified when creating the managed cluster.')
-param kubernetesVersion string = '1.18.8'
+param kubernetesVersion string = '1.28.0'
 
 @description('Specifies the administrator username of Linux virtual machines.')
 param adminUsername string = 'azureuser'
