@@ -78,6 +78,9 @@
     "userAgentPoolOsDiskSizeGB": {
       "value": 80
     },
+    "bastionHostEnabled": {
+      "value": false
+    },
     "userAgentPoolAgentCount": {
       "value": 3
     },
@@ -170,7 +173,7 @@
       "value": "PerGB2018"
     },
     "vmEnabled": {
-      "value": true
+      "value": false
     },
     "vmName": {
       "value": "TestVm"
