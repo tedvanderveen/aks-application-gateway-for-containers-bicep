@@ -267,9 +267,6 @@
     "userAgentPoolOsDiskType": {
       "value": "Ephemeral"
     },
-    "deploymentScriptUri": {
-      "value": "https://paolosalvatori.blob.core.windows.net/scripts/install-alb-controller.sh"
-    },
     "blobCSIDriverEnabled": {
       "value": true
     },

@@ -2,14 +2,8 @@
 @description('Specifies the name of the deployment script uri.')
 param name string = 'DeploymentScript' 
 
-@description('Specifies the name of the storage account used by the deployment script.')
-param storageAccountName string = 'serverboot${uniqueString(resourceGroup().id)}'
-
 @description('Specifies the resource id of the user-defined managed identity used by the deployment script.')
 param managedIdentityId string 
-
-@description('Specifies the primary script URI.')
-param primaryScriptUri string
 
 @description('Specifies the name of the AKS cluster.')
 param clusterName string
@@ -74,11 +68,6 @@ param location string
 
 @description('Specifies the resource tags.')
 param tags object
-
-// Resources
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-09-01' existing = {
-  name: storageAccountName
-}
 
 // Script
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
@@ -165,11 +154,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
         value: email
       }
     ]
-    storageAccountSettings: {
-      storageAccountName: storageAccount.name
-      storageAccountKey: storageAccount.listKeys().keys[0].value
-    }
-    primaryScriptUri: primaryScriptUri
+    scriptContent: loadTextContent('install-alb-controller.sh')
     cleanupPreference: 'OnSuccess'
     retentionInterval: 'P1D'
   }

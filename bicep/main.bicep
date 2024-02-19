@@ -967,9 +967,6 @@ param email string = ''
 @description('Specifies the name of the deployment script uri.')
 param deploymentScripName string = 'DeploymentScript'
 
-@description('Specifies the deployment script uri.')
-param deploymentScriptUri string
-
 // Variables
 var hostName = !empty(subdomain) && !empty(domain) ? '${subdomain}.${domain}' : ''
 
@@ -1402,13 +1399,11 @@ module deploymentScript 'deploymentScript.bicep' = {
   name: 'deploymentScript'
   params: {
     name: deploymentScripName
-    storageAccountName: storageAccount.outputs.name
     managedIdentityId: deploymentScriptManagedIdentity.outputs.id
     clusterName: aksCluster.outputs.name
     hostName: hostName
     namespace: namespace
     email: email
-    primaryScriptUri: deploymentScriptUri
     resourceGroupName: resourceGroup().name
     nodeResourceGroupName: aksCluster.outputs.nodeResourceGroup
     applicationGatewayEnabled: applicationGatewayEnabled ? 'true' : 'false'

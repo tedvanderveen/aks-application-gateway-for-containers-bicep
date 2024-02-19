@@ -1923,12 +1923,6 @@
       "metadata": {
         "description": "Specifies the name of the deployment script uri."
       }
-    },
-    "deploymentScriptUri": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the deployment script uri."
-      }
     }
   },
   "variables": {
@@ -9985,9 +9979,6 @@
           },
           "email": {
             "value": "[parameters('email')]"
-          },
-          "primaryScriptUri": {
-            "value": "[parameters('deploymentScriptUri')]"
           },
           "resourceGroupName": {
             "value": "[resourceGroup().name]"
