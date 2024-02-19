@@ -1284,7 +1284,6 @@ module aksCluster 'aksCluster.bicep' = {
     metricAnnotationsAllowList: metricAnnotationsAllowList
     metricLabelsAllowlist: metricLabelsAllowlist
     openAiEnabled: openAiEnabled
-    letterCaseType: letterCaseType
     namespace: namespace
     serviceAccountName: serviceAccountName
     userId: userId

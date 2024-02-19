@@ -476,14 +476,6 @@ param metricLabelsAllowlist string = ''
 @description('Specifies whether to create an Azure OpenAI Service resource or not.')
 param openAiEnabled bool = false
 
-@description('Specifies whether name resources are in CamelCase, UpperCamelCase, or KebabCase.')
-@allowed([
-  'CamelCase'
-  'UpperCamelCase'
-  'KebabCase'
-])
-param letterCaseType string = 'UpperCamelCase'
-
 @description('Specifies the namespace of the application.')
 param namespace string
 
