@@ -15,15 +15,16 @@ installExtensions=0
 # Name and location of the resource group for the Azure Kubernetes Service (AKS) cluster
 aksResourceGroupName="${prefix}RG"
 location="EastUS"
+randomSuffix=$(aksResourceGroupName | sha256sum | head -c 6)
 
 # Name and resource group name of the Azure Container Registry used by the AKS cluster.
 # The name of the cluster is also used to create or select an existing admin group in the Azure AD tenant.
-acrName="${prefix}Acr"
+acrName="${prefix}Acr${randomSuffix}"
 acrResourceGroupName="$aksResourceGroupName"
 acrSku="Premium"
 
 # Name of Key Vault
-keyVaultName="${prefix}KeyVault"
+keyVaultName="${prefix}KeyVault${randomSuffix}"
 
 # Name of the Log Analytics
 logAnalyticsWorkspaceName="${prefix}LogAnalytics"
